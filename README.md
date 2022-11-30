@@ -27,17 +27,11 @@ git clone git@github.com:raisadz/build-ml-pipeline-for-short-term-rental-prices.
 cd build-ml-pipeline-for-short-term-rental-prices
 ```
 
-Install [mamba](https://pypi.org/project/mamba/).
-Create a conda environment:
+Create and activate a conda environment:
 
 ```bash
-mamba create -n ml_pipe_env python=3.8
-```
-
-Activate the environment:
-
-```bash
-mamba activate ml_pipe_env
+conda env create -f environment.yml
+conda activate nyc_airbnb_dev
 ```
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements:

@@ -1,6 +1,5 @@
 from setuptools import setup
 
-
 setup(
     name="wandb-utils",
     version=0.1,
@@ -11,8 +10,5 @@ setup(
         "Programming Language :: Python :: 3",
         "Development Status :: 4 - Beta",
     ],
-    install_requires=[
-        "mlflow",
-        "wandb"
-    ]
+    install_requires=["mlflow", "wandb"],
 )
