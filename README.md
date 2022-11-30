@@ -56,10 +56,10 @@ mlflow run . -P steps=train_random_forest -P hydra_options="hydra/launcher=jobli
 ```
 
 To test the model against the test data set:
-``bash
+```bash
 mlflow run . -P steps=test_regression_model
-``
-## Submission details
+```
+## Weights & Biases project
 
 [Weights&Biases project link](https://wandb.ai/raisadz/nyc_airbnb/overview?workspace=user-raisadz)
 
