@@ -1,25 +1,82 @@
 # Build an ML Pipeline for Short-Term Rental Prices in NYC
-Project on ML Pipelines of Udacity MLOps Engineer nanodegree. 
+Project on building reproducible ML Pipelines using [MLflow](https://mlflow.org) and [Weights & Biases](https://wandb.ai) of Machine Learning DevOps Engineer Nanodegree Udacity.
 
-You are working for a property management company renting rooms and properties for short periods of 
-time on various rental platforms. You need to estimate the typical price for a given property based 
-on the price of similar properties. Your company receives new data in bulk every week. The model needs 
-to be retrained with the same cadence, necessitating an end-to-end pipeline that can be reused.
+## Project Description
+The goal of the project is to build a reproducible ML Pipeline for estimating a property rental price. A new data comes every week, and the model needs a regular re-training. An end-to-end reusable pipeline will enable an easy re-training process and reduce the time-to-production.
 
-In this project you will build such a pipeline.
+## Files and data description
+Folder `src` contains the steps of the implemented ML pipeline:
 
-## Submission details
+`src/eda` Exploratory data analysis;
 
-[W&B project link](https://wandb.ai/raisadz/nyc_airbnb/overview?workspace=user-raisadz)
+`src/basic_cleaning` Data cleaning step, which starts from the sample.csv artifact and create a new artifact clean_sample.csv with the cleaned data;
 
-[ML pipeline visualisation](https://wandb.ai/raisadz/nyc_airbnb/artifacts/model_export/random_forest_export/8bc6ea5aded0026ecea7/lineage)
+`src/data_check` Data testing;
 
+`src/train_random_forest` Model training;
 
-## Hyperparameters optimisation
+`main.py` Main script to run all the pipeline steps;
 
+`config.yaml` Default hyperparameters used by Hydra.
+
+## Installation
+Clone the repo:
+
+```bash
+git clone git@github.com:raisadz/build-ml-pipeline-for-short-term-rental-prices.git
+cd build-ml-pipeline-for-short-term-rental-prices
+```
+
+Install [mamba](https://pypi.org/project/mamba/).
+Create a conda environment:
+
+```bash
+mamba create -n ml_pipe_env python=3.8
+```
+
+Activate the environment:
+
+```bash
+mamba activate ml_pipe_env
+```
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements:
+```bash
+pip install -r requirements.txt
+```
+
+## Running the project
+To run the project, you need to signup/login to wandb, follow the [instructions](https://docs.wandb.ai/quickstart).
+
+To run the whole project:
+```bash
+mlflow run .
+```
+
+You can run one step of the pipeline. For example, to download the data:
+```bash
+mlflow run . -P steps=download
+```
+Or to run the EDA step:
+```bash
+mlflow run src/eda
+```
+Hydra allows an easy hyperparameters tuning (option `hydra/lancher=joblib` enables parallel calculation):
 ```bash
 mlflow run . -P steps=train_random_forest -P hydra_options="hydra/launcher=joblib modeling.max_tfidf_features=10,15,30 modeling.random_forest.max_features=0.1,0.33,0.5,0.75,1 -m"
 ```
+
+To test the model against the test data set:
+``bash
+mlflow run . -P steps=test_regression_model
+``
+## Submission details
+
+[Weights&Biases project link](https://wandb.ai/raisadz/nyc_airbnb/overview?workspace=user-raisadz)
+
+[ML pipeline visualisation](https://wandb.ai/raisadz/nyc_airbnb/artifacts/model_export/random_forest_export/8bc6ea5aded0026ecea7/lineage)
+
+ 
 
 
 
