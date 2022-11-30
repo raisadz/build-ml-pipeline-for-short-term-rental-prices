@@ -1,8 +1,8 @@
 # Build an ML Pipeline for Short-Term Rental Prices in NYC
-Project on building reproducible ML Pipelines using [MLflow](https://mlflow.org) and [Weights & Biases](https://wandb.ai) of Machine Learning DevOps Engineer Nanodegree Udacity.
+Project *Build an ML Pipeline for Short-Term Rental Prices in NYC* of Machine Learning DevOps Engineer Nanodegree Udacity.
 
 ## Project Description
-The goal of the project is to build a reproducible ML Pipeline for estimating a property rental price. A new data comes every week, and the model needs a regular re-training. An end-to-end reusable pipeline will enable an easy re-training process and reduce the time-to-production.
+The goal of the project is to build a reproducible ML Pipeline for estimating a property rental price using [MLflow](https://mlflow.org) and [Weights & Biases](https://wandb.ai). A new data comes every week, and the model needs a regular re-training. An end-to-end reusable pipeline will enable an easy re-training process and reduce the time-to-production.
 
 ## Files and data description
 Folder `src` contains the steps of the implemented ML pipeline:
@@ -32,11 +32,6 @@ Create and activate a conda environment:
 ```bash
 conda env create -f environment.yml
 conda activate nyc_airbnb_dev
-```
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements:
-```bash
-pip install -r requirements.txt
 ```
 
 ## Running the project
